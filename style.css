@@ -1,0 +1,214 @@
+/* 基本样式设置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-image: radial-gradient(circle at top right, #16213e, transparent 40%),
+                      radial-gradient(circle at bottom left, #16213e, transparent 30%);
+}
+
+/* 邀请函容器样式 */
+.invitation {
+    width: 100%;
+    max-width: 800px;
+    background-color: #ffffff;
+    padding: 50px;
+    border: 2px solid #2c3e50;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    transform: rotate(-1deg);
+    transition: transform 0.3s ease;
+}
+
+.invitation:hover {
+    transform: rotate(0deg);
+}
+
+/* 装饰元素 */
+.invitation::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #3498db, #9b59b6, #3498db);
+}
+
+/* 标题样式 */
+.title {
+    font-family: 'Segoe Script', cursive;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.title::after {
+    content: '';
+    display: block;
+    width: 150px;
+    height: 2px;
+    background-color: #3498db;
+    margin: 10px auto;
+}
+
+/* 文本内容样式 */
+.greeting {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #34495e;
+    margin-bottom: 30px;
+    text-align: center;
+    white-space: pre-line;
+}
+
+/* 详细部分样式 */
+.details {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    border-left: 4px solid #3498db;
+}
+
+.label {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.details p {
+    margin-bottom: 10px;
+    color: #34495e;
+}
+
+/* 谜题部分样式 */
+.puzzle {
+    background-color: #f1f2f6;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.puzzle-text {
+    font-style: italic;
+    margin: 15px 0;
+    color: #2c3e50;
+    font-size: 1.1rem;
+}
+
+#show-answer {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+#show-answer:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+#answer {
+    margin-top: 15px;
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+/* 结尾与署名样式 */
+.closing {
+    text-align: right;
+    margin-bottom: 10px;
+    color: #2c3e50;
+    font-style: italic;
+}
+
+.signature {
+    text-align: right;
+    font-family: 'Segoe Script', cursive;
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.ps {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    font-style: italic;
+    text-align: right;
+    margin-top: 30px;
+}
+
+/* 怪盗基德头像 */
+.kaito-image {
+    width: 200px;
+    height: 200px;
+    background-image: url(https://yin-qin.oss-cn-shanghai.aliyuncs.com/img/002.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .invitation {
+        padding: 30px 20px;
+    }
+    .title {
+        font-size: 2rem;
+    }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.invitation > * {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.title { animation-delay: 0.1s; opacity: 0; }
+.greeting { animation-delay: 0.2s; opacity: 0; }
+.content { animation-delay: 0.3s; opacity: 0; }
+.details { animation-delay: 0.4s; opacity: 0; }
+.puzzle { animation-delay: 0.5s; opacity: 0; }
+.closing { animation-delay: 0.6s; opacity: 0; }
+.signature { animation-delay: 0.7s; opacity: 0; }
+.ps { animation-delay: 0.8s; opacity: 0; }
